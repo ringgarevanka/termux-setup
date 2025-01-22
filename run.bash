@@ -3,7 +3,7 @@
 # Script Information
 readonly SCRIPT_NAME="TERMUX SETUP"
 readonly SCRIPT_DESCRIPTION="A configuration and script setup for Termux environment."
-readonly SCRIPT_VERSION="1.0.241207"
+readonly SCRIPT_VERSION="1.0.250122"
 readonly DEVELOPER="Ringga"
 readonly DEV_USERNAME="@ringgarevanka"
 
