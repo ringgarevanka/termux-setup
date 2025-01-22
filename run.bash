@@ -119,9 +119,9 @@ initialize_environment() {
         cleanup
         exit 1
     fi
-    
+
     readonly VERSION=$(wget -q -O - "https://raw.githubusercontent.com/ringgarevanka/-/refs/heads/_/termux-setup-version")
-    if [[ "$VERSION" != "$SCRIPT_VERSION" ]]; then
+    if [[ $VERSION != "$SCRIPT_VERSION" ]]; then
         display_red "Error: $SCRIPT_VERSION version does not match $VERSION"
         log_message "ERROR" "Version check failed"
         cleanup
@@ -487,6 +487,7 @@ clear
 fastfetch -l none
 EOF
 
+    # add .alias for .bashrc
     rm -rf "$HOME_DIR/.alias"
     cat >"$HOME_DIR/.alias" <<EOF
 # Aliases
@@ -536,8 +537,22 @@ shortcut.rename-session = ctrl + n
 bell-character=vibrate
 allow-external-apps=true
 terminal-transcript=true
-
 EOF
+
+    # Setup Termux GUI
+    pkg update -y
+    pkg upgrade -y
+    pkg install x11-repo
+    pkg install tur-repo
+    pkg install termux-x11-nightly xfce4 xfce4-goodies pulseaudio xfce4-pulseaudio-plugin virglrenderer-android
+    rm -rf "$HOME_DIR/guistart"
+    cat >"$HOME_DIR/guistart" <<EOF
+export PULSE_SERVER=127.0.0.1
+virgl_test_server_android &
+pulseaudio --start &
+termux-x11 :1 -xstartup "dbus-launch --exit-with-session xfce4-session"
+EOF
+    chmod +x guistart
 
     log_message "INFO" "Terminal customization completed"
 }
