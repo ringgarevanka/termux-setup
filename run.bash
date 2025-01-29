@@ -120,13 +120,13 @@ initialize_environment() {
         exit 1
     fi
 
-    readonly VERSION=$(wget -q -O - "https://raw.githubusercontent.com/ringgarevanka/-/refs/heads/_/termux-setup-version")
-    if [[ $VERSION != "$SCRIPT_VERSION" ]]; then
-        display_red "Error: $SCRIPT_VERSION version does not match $VERSION"
-        log_message "ERROR" "Version check failed"
-        cleanup
-        exit 1
-    fi
+    # readonly VERSION=$(wget -q -O - "https://raw.githubusercontent.com/ringgarevanka/-/refs/heads/_/termux-setup-version")
+    # if [[ $VERSION != "$SCRIPT_VERSION" ]]; then
+        # display_red "Error: $SCRIPT_VERSION version does not match $VERSION"
+        # log_message "ERROR" "Version check failed"
+        # cleanup
+        # exit 1
+    # fi
 }
 
 # Package management functions
