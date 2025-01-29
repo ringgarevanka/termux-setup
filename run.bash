@@ -497,7 +497,6 @@ alias ll='ls -lah'           # List files and directories in long format
 alias lt='ls -ltr'         # List files and directories, sorted by modification time, newest last
 alias md='mkdir'          # Create a new directory
 alias rd='rmdir'          # Remove an empty directory
-alias go='cd'             # Change directory
 alias bd='cd ..'          # Change to the parent directory
 alias hd='cd ~'           # Change to the home directory
 alias pd='pwd'            # Print the current working directory
@@ -519,7 +518,7 @@ alias pg='pkg upgrade'     # Upgrade packages (alternative to apt)
 alias pi='pkg install'     # Install a package (alternative to apt)
 alias pr='pkg remove'      # Remove a package (alternative to apt)
 alias ps='pkg search'      # Search for packages (alternative to apt)
-alias apug='apt update -y && apt upgrade -y && pkg update -y && pkg upgrade -y'  # Update and Upgrade
+alias pkgupall='apt update -y && apt upgrade -y && pkg update -y && pkg upgrade -y'  # Update and Upgrade
 alias c='clear'           # Clear the terminal screen
 EOF
 
