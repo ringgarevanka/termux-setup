@@ -178,7 +178,7 @@ EOF
     if ask "Setup custom .bashrc" y; then
       cat >"$HOME/.bashrc" <<EOF
 # Cache cleanup
-clear && apt-get autoremove -y && apt-get autoclean -y >/dev/null 2>&1
+clear && ( apt-get autoremove -y && apt-get autoclean -y ) >/dev/null 2>&1
 clear
 
 # Aliases
