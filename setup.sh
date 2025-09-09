@@ -192,8 +192,7 @@ alias wget='wget -c'
 alias fhere="find . -name "
 alias ..="cd .."
 alias histg="history | grep"
-$([ "${XFCE_INSTALLED:-0}" -eq 1 ] && echo "alias startxfce='sh \$HOME/.termux/.startxfce4'
-alias startxfceb='sh \$HOME/.termux/.startxfce4 &'")
+$([ "${XFCE_INSTALLED:-0}" -eq 1 ] && echo "alias startxfce='sh \$HOME/.termux/.startxfce4'")
 $([ "${FASTFETCH_LOGO:-0}" -eq 0 ] && echo "alias fastfetch='\$PREFIX/bin/fastfetch -l none'")
 $([ "${RUN_FASTFETCH:-0}" -eq 1 ] && echo fastfetch)
 EOF
