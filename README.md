@@ -30,7 +30,7 @@ This script provides an interactive installation process that configures Termux 
 
 ### Quick Install
 ```bash
-wget -O - https://raw.githubusercontent.com/ringgarevanka/termux-setup/refs/heads/main/setup.sh | bash
+wget -qO setup.sh https://raw.githubusercontent.com/ringgarevanka/termux-setup/refs/heads/main/setup.sh && bash setup.sh && rm setup.sh
 ```
 
 ### Manual Installation
