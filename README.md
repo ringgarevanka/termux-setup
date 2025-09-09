@@ -170,9 +170,7 @@ Contributions are welcome through:
 - Pull requests with improvements or fixes
 - Documentation updates and clarifications
 
-## License
-
-This project is distributed under the MIT License. See the repository for complete license terms.
+## This repository doesn't have LICENSE, just please add credits to this repository.
 
 ---
 
