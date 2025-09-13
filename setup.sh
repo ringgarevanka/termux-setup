@@ -166,11 +166,11 @@ EOF
       chmod +x "$HOME/.termux/.startxfce4"
       if ask "Install JetBrainsMono Nerd Font for XFCE4" y; then
         pkg install curl fontconfig -y
-        mkdir -p "$PREFIX/share/fonts/nerd-fonts"
-        rm -f "$PREFIX/share/fonts/nerd-fonts/JetBrainsMonoNerdFontMono-Regular.ttf"
-        curl -L -o "$PREFIX/share/fonts/nerd-fonts/JetBrainsMonoNerdFontMono-Regular.ttf" \
+        mkdir -p "$PREFIX/share/fonts/TTF"
+        rm -f "$PREFIX/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf"
+        curl -L -o "$PREFIX/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf" \
           "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFontMono-Regular.ttf"
-        chmod 644 "$PREFIX/share/fonts/nerd-fonts/JetBrainsMonoNerdFontMono-Regular.ttf"
+        chmod 644 "$PREFIX/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf"
       fi
     fi
 
@@ -204,7 +204,6 @@ fi
 echo "Finalizing"
 apt autoclean -y
 apt autoremove -y
-rm -rf "$HOME/tmp/"* "$HOME/.cache/"* "$PREFIX/tmp/"*
 termux-reload-settings
 echo "Restart Termux to fully apply the settings."
 sleep 3
