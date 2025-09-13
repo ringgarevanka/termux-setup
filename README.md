@@ -9,31 +9,26 @@ This script provides an interactive installation process that configures Termux 
 ## Features
 
 ### Terminal Customization
-- **JetBrains Mono Nerd Font** - Professional programming font with icon support
-- **Tokyo Night Color Scheme** - Modern dark theme optimized for readability
-- **Fastfetch System Information** - Comprehensive system info display with custom configuration
-- **Enhanced Shell Environment** - Custom .bashrc with productivity-focused aliases
+- **JetBrains Mono Nerd Font** - Font with icon support
+- **Tokyo Night Color Scheme** - Theme
+- **Fastfetch Custom Configuration** - Fastfetch with custom configuration
+- **Enhanced Shell Environment** - Custom .bashrc with aliases
 
 ### Desktop Environment
-- **XFCE4 Desktop Environment** - Complete Linux desktop experience
-- **Termux:X11 Integration** - Seamless X11 server configuration
-- **Hardware Acceleration** - VirGL renderer for optimal graphics performance
-- **Pre-installed Applications** - Firefox browser and Visual Studio Code OSS
-- **Audio Support** - PulseAudio configuration for desktop applications
+- **XFCE4 Desktop Environment** - Simple Linux desktop experience with Termux:X11 (Termux:X11 app is required)
+- **Hardware Acceleration**
+- **Audio Support** - Using PulseAudio
 
 ### System Optimization
 - **Automated Package Management** - System updates, upgrades, and cleanup routines
-- **Storage Integration** - Configured access to Android filesystem
-- **Performance Tuning** - Optimized settings for Android environment
 
 ## Installation
 
-### Quick Install
 ```bash
 wget -qO setup.sh https://raw.githubusercontent.com/ringgarevanka/termux-setup/refs/heads/main/setup.sh && bash setup.sh && rm setup.sh
 ```
+or
 
-### Manual Installation
 ```bash
 wget https://raw.githubusercontent.com/ringgarevanka/termux-setup/refs/heads/main/setup.sh
 chmod +x setup.sh
@@ -43,18 +38,11 @@ chmod +x setup.sh
 ## Configuration Options
 
 The script provides interactive prompts for the following components:
-
-### Core Components
 - JetBrains Mono Nerd Font installation
 - Tokyo Night color scheme application
-- Fastfetch system information tool with custom layout
+- Fastfetch with custom config
 - Custom .bashrc configuration with aliases
-
-### Optional Components
 - XFCE4 desktop environment with supporting packages
-- Desktop font configuration
-- Fastfetch startup integration
-- OS logo display in system information
 
 ## Desktop Environment Usage
 
@@ -64,7 +52,7 @@ After installing the desktop environment, use these commands:
 startxfce    # Launch XFCE4 desktop
 ```
 
-**Prerequisites**: Install Termux:X11 from Play Store or GitHub releases.
+**Prerequisites**: Install Termux:X11 from GitHub.
 
 ## Shell Aliases
 
@@ -89,12 +77,12 @@ histg="history | grep"   # Search command history
 - Android 7.0 or higher
 - Termux application installed
 - 2GB available storage space
-- Internet connection for package downloads
+- Stable Internet connection for package downloads
 
 ### Desktop Environment Additional Requirements
 - Termux:X11 application
 - 4GB available storage space (recommended)
-- Device with sufficient RAM for desktop applications
+- Device with sufficient RAM for desktop applications (6GB minimal)
 
 ## Best Practices
 
@@ -139,7 +127,7 @@ Ensure Termux has appropriate storage permissions for:
 
 ### Immediate Steps
 1. Restart Termux to apply all configurations
-2. Test system information display with `fastfetch`
+2. Test fastfetch display with `fastfetch`
 3. Verify aliases functionality with `alias` command
 4. Launch desktop environment if installed
 
