@@ -1,9 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # ---------- Helper Function ----------
 ask() {
-  local prompt="$1"
-  local default="$2"
-  local answer
+  local prompt="$1" default="$2" answer
 
   while true; do
     if [ "$default" = "y" ]; then
@@ -20,6 +18,31 @@ ask() {
     *) echo "Invalid choice, try again." ;;
     esac
   done
+}
+
+choice() {
+    local title="" options=() keys=()
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -t|--title) title="$2"; shift 2 ;;
+            -c|--choice) options+=("$2|$3"); keys+=("$2"); shift 3 ;;
+            *) echo "Unknown option: $1"; return 1 ;;
+        esac
+    done
+
+    while true; do
+        [[ -n "$title" ]] && echo "$title"
+        for opt in "${options[@]}"; do
+            echo "${opt%%|*}) ${opt#*|}"
+        done
+
+        read -p "Select: " input
+        for k in "${keys[@]}"; do
+            [[ "$input" == "$k" ]] && echo "$input" && return 0
+        done
+        echo "Invalid choice, try again."
+    done
 }
 
 # ---------- Initial ----------
@@ -190,9 +213,10 @@ alias mkdir='mkdir -pv'
 alias rf='rm -rf'
 alias wget='wget -c'
 alias fhere="find . -name "
-alias ..="cd .."
+alias ..='cd ..'
 alias histg="history | grep"
 $([ "${XFCE_INSTALLED:-0}" -eq 1 ] && echo "alias startxfce='sh \$HOME/.termux/.startxfce4'")
+$([ "${XFCE_INSTALLED:-0}" -eq 1 ] && echo "alias DE='sh \$HOME/.termux/.startxfce4'")
 $([ "${FASTFETCH_LOGO:-0}" -eq 0 ] && echo "alias fastfetch='\$PREFIX/bin/fastfetch -l none'")
 $([ "${RUN_FASTFETCH:-0}" -eq 1 ] && echo fastfetch)
 EOF
