@@ -1,23 +1,16 @@
-# Termux Setup
+# Termux Setup (Core)
 
-A comprehensive automated setup script for Termux that transforms your Android terminal into a fully-featured development environment with optional desktop capabilities.
+A core (lightweight/basic) version of Termux Setup. an automated bash script for Setup your Termux App.
 
 ## Overview
 
-This script provides an interactive installation process that configures Termux with modern theming, development tools, and optionally a complete desktop environment. The setup is designed to work seamlessly on fresh Termux installations while providing flexibility for customization.
+This automated lightweight/basic bash script to setup Termux.
 
 ## Features
 
 ### Terminal Customization
 - **JetBrains Mono Nerd Font** - Font with icon support
-- **Tokyo Night Color Scheme** - Theme
-- **Fastfetch Custom Configuration** - Fastfetch with custom configuration
 - **Enhanced Shell Environment** - Custom .bashrc with aliases
-
-### Desktop Environment
-- **XFCE4 Desktop Environment** - Simple Linux desktop experience with Termux:X11 (Termux:X11 app is required)
-- **Hardware Acceleration**
-- **Audio Support** - Using PulseAudio
 
 ### System Optimization
 - **Automated Package Management** - System updates, upgrades, and cleanup routines
@@ -25,52 +18,15 @@ This script provides an interactive installation process that configures Termux 
 ## Installation
 
 ```bash
-wget -qO setup.sh https://raw.githubusercontent.com/ringgarevanka/termux-setup/refs/heads/main/setup.sh && bash setup.sh && rm setup.sh
+wget -qO setup.sh https://raw.githubusercontent.com/ringgarevanka/termux-setup/refs/heads/core/setup.sh && bash setup.sh && rm setup.sh
 ```
 or
 
 ```bash
-wget https://raw.githubusercontent.com/ringgarevanka/termux-setup/refs/heads/main/setup.sh
+wget https://raw.githubusercontent.com/ringgarevanka/termux-setup/refs/heads/core/setup.sh
 chmod +x setup.sh
 ./setup.sh
 ```
-
-## Configuration Options
-
-The script provides interactive prompts for the following components:
-- JetBrains Mono Nerd Font installation
-- Tokyo Night color scheme application
-- Fastfetch with custom config
-- Custom .bashrc configuration with aliases
-- XFCE4 desktop environment with supporting packages
-
-## Desktop Environment Usage
-
-After installing the desktop environment, use these commands:
-
-```bash
-startxfce    # Launch XFCE4 desktop
-```
-
-**Prerequisites**: Install Termux:X11 from GitHub.
-
-## Shell Aliases
-
-The script configures the following productivity aliases:
-
-```bash
-cp='cp -rv'              # Verbose recursive copy
-ls='ls --color=auto -ACF' # Colorized file listing
-ll='ls -lhA'             # Detailed file listing
-mv='mv -v'               # Verbose move operations
-mkdir='mkdir -pv'        # Create parent directories
-rf='rm -rf'              # Recursive force removal
-wget='wget -c'           # Resume interrupted downloads
-fhere="find . -name"     # Quick file search
-..="cd .."               # Navigate up one directory
-histg="history | grep"   # Search command history
-```
-
 ## System Requirements
 
 ### Minimum Requirements
@@ -78,26 +34,6 @@ histg="history | grep"   # Search command history
 - Termux application installed
 - 2GB available storage space
 - Stable Internet connection for package downloads
-
-### Desktop Environment Additional Requirements
-- Termux:X11 application
-- 4GB available storage space (recommended)
-- Device with sufficient RAM for desktop applications (6GB minimal)
-
-## Best Practices
-
-### Fresh Installation
-For optimal results, use a fresh Termux installation:
-- Execute `termux-reset` command, or
-- Clear Termux application data through Android settings
-
-The script automatically detects fresh installations and provides warnings for existing setups.
-
-### Storage Permissions
-Ensure Termux has appropriate storage permissions for:
-- Font installation
-- Configuration file management
-- Desktop environment setup
 
 ## Troubleshooting
 
@@ -110,13 +46,8 @@ Ensure Termux has appropriate storage permissions for:
 
 **Font Not Applied**
 - Restart Termux application
-- Verify font file: `ls ~/.termux/font.ttf`
+- Verify font file: `file $HOME/.termux/font.ttf`
 - Confirm storage permissions granted
-
-**Desktop Environment Problems**
-- Install and update Termux:X11 application
-- Grant required permissions to both applications
-- Restart both Termux and Termux:X11
 
 **Package Installation Errors**
 - Update package repositories: `pkg update`
@@ -127,29 +58,19 @@ Ensure Termux has appropriate storage permissions for:
 
 ### Immediate Steps
 1. Restart Termux to apply all configurations
-2. Test fastfetch display with `fastfetch`
-3. Verify aliases functionality with `alias` command
-4. Launch desktop environment if installed
 
 ### Verification
 - Check font rendering in terminal
-- Confirm color scheme application
-- Test desktop environment functionality
 - Validate custom aliases and shell configuration
 
 ## Technical Details
 
 ### Package Sources
 - **Main Repository**: Official Termux packages
-- **X11 Repository**: X11-related packages for desktop environment
-- **TUR Repository**: Community-maintained packages
 
 ### Configuration Locations
 - Font: `~/.termux/font.ttf`
-- Colors: `~/.termux/colors.properties`
-- Fastfetch: `~/fastfetch/config.jsonc`
 - Shell: `~/.bashrc`
-- Desktop Launcher: `~/.termux/.startxfce4`
 
 ## Contributing
 
