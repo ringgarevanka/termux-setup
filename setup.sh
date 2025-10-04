@@ -56,6 +56,16 @@ if ask "Hello $(whoami), Do you want to start setup" y; then
     termux-setup-storage
 
     # ---------- Configure Terminal Environment ----------
+    if ask "Apply termux.properties custom configuration" y; then
+      cat >"$HOME/.termux/termux.properties" <<'EOF'
+extra-keys-style = default
+extra-keys-text-all-caps = true
+extra-keys = [['ESC','TAB','CTRL','ALT',{key: '-', popup: '/'},{key: 'LEFT', popup: 'HOME'},{key: 'UP', popup: 'PGUP'},{key: 'DOWN', popup: 'PGDN'},{key: 'RIGHT', popup: 'END'}]]
+use-black-ui = true
+terminal-margin-horizontal = 3
+EOF
+    fi
+      
     if ask "Install JetBrainsMono Nerd Font" y; then
       pkg install curl -y
       rm -f "$HOME/.termux/font.ttf"
@@ -163,7 +173,12 @@ EOF
       pkg install x11-repo tur-repo -y
       pkg install termux-x11-nightly xfce4 xfce4-goodies pulseaudio pavucontrol -y
       pkg install virglrenderer-android mesa-demos -y
-      pkg install firefox code-oss -y
+      if ask "Install FireFox" y; then
+        pkg install firefox -y
+      fi
+      if ask "Install CodeOSS (VSCode)" y; then
+        pkg install code-oss -y
+      fi
       cat >"$HOME/.termux/.startxfce4" <<'EOF'
 #!/data/data/com.termux/files/usr/bin/bash
 
