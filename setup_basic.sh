@@ -36,6 +36,9 @@ alias wget='wget -c'
 alias fhere="find . -name "
 alias ..='cd ..'
 alias histg="history | grep"
+
+# Custom PS1
+PS1='[\u@\h \[\e[0;32m\]\w\[\e[0m\]] \[\e[0;97m\]\$\[\e[0m\] '
 EOF
 
 # Finalizing
