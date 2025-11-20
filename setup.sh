@@ -52,7 +52,9 @@ if ask "Hello $(whoami), Do you want to start setup" y; then
     cd "$HOME"
     pkg update -y
     pkg upgrade -y
+    pkg install x11-repo root-repo -y
     apt autoclean -y
+    apt autoremove -y
     termux-setup-storage
 
     # Configure Terminal Environment
