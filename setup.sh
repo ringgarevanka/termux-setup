@@ -231,6 +231,9 @@ $([ "${XFCE_INSTALLED:-0}" -eq 1 ] && echo "alias startxfce='sh \$HOME/.termux/.
 $([ "${XFCE_INSTALLED:-0}" -eq 1 ] && echo "alias sxfce='sh \$HOME/.termux/.startxfce4'")
 $([ "${FASTFETCH_LOGO:-0}" -eq 0 ] && echo "alias fastfetch='\$PREFIX/bin/fastfetch -l none'")
 $([ "${RUN_FASTFETCH:-0}" -eq 1 ] && echo fastfetch)
+
+# Custom PS1
+PS1='[\u@\h \[\e[0;32m\]\w\[\e[0m\]] \[\e[0;97m\]\$\[\e[0m\] '
 EOF
     fi
   fi
