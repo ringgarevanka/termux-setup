@@ -63,7 +63,7 @@ if ask "Hello $(whoami), Do you want to start setup" y; then
 # EOF
     # fi
       
-    if ask "Install JetBrainsMono Nerd Font" y; then
+    if ask "Install and Apply JetBrainsMono Nerd Font Mono (Regular)" y; then
       pkg install curl -y
       rm -f "$HOME/.termux/font.ttf"
       curl -L -o "$HOME/.termux/font.ttf" \
@@ -199,13 +199,14 @@ sleep 1
 env DISPLAY=:0 dbus-launch --exit-with-session startxfce4 &
 EOF
       chmod +x "$HOME/.termux/.startxfce4"
-      if ask "Install JetBrainsMono Nerd Font for XFCE4" y; then
+      if ask "Add JetBrainsMono Nerd Font Mono (Regular) to XFCE" y; then
         pkg install curl fontconfig -y
         mkdir -p "$PREFIX/share/fonts/TTF"
         rm -f "$PREFIX/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf"
         curl -L -o "$PREFIX/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf" \
           "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFontMono-Regular.ttf"
         chmod 644 "$PREFIX/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf"
+        fc-cache -fv
       fi
     fi
 
@@ -213,7 +214,7 @@ EOF
     if ask "Setup custom .bashrc" y; then
       cat >"$HOME/.bashrc" <<EOF
 # Cache cleanup
-clear && ( apt-get autoremove -y && apt-get autoclean -y ) >/dev/null 2>&1
+clear && echo "Loading..." && ( apt-get autoremove -y && apt-get autoclean -y ) >/dev/null 2>&1
 clear
 
 # Aliases
@@ -231,9 +232,6 @@ $([ "${XFCE_INSTALLED:-0}" -eq 1 ] && echo "alias startxfce='sh \$HOME/.termux/.
 $([ "${XFCE_INSTALLED:-0}" -eq 1 ] && echo "alias sxfce='sh \$HOME/.termux/.startxfce4'")
 $([ "${FASTFETCH_LOGO:-0}" -eq 0 ] && echo "alias fastfetch='\$PREFIX/bin/fastfetch -l none'")
 $([ "${RUN_FASTFETCH:-0}" -eq 1 ] && echo fastfetch)
-
-# Custom PS1
-PS1='[\u@\h \[\e[0;32m\]\w\[\e[0m\]] \[\e[0;97m\]\$\[\e[0m\] '
 EOF
     fi
   fi
