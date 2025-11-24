@@ -12,10 +12,10 @@ Automated setup script that transforms [Termux](https://github.com/termux/termux
 ### Full Version (Complete)
 - All Basic features plus:
 - **Tokyo Night Theme**: Modern color scheme
-- **Custom Fastfetch**: System information display
-- **XFCE4 Desktop**: Complete desktop environment via Termux:X11
-- **Hardware Acceleration**: Optimized graphics performance
-- **Audio Support**: PulseAudio integration
+- **Fastfetch custom configuration**: System information display 
+- **Desktop Environment**: Xfce or i3 via Termux:X11
+- **Hardware Acceleration**
+- **Audio Support (PluseAudio)**
 
 ## Installation
 
@@ -42,7 +42,7 @@ curl -fsSL https://raw.githubusercontent.com/ringgarevanka/termux-setup/refs/hea
 - Android 7.0+
 - 4GB storage
 - 6GB RAM recommended
-- [Termux:X11](https://github.com/termux/termux-x11) app (for desktop)
+- [Termux:X11](https://github.com/termux/termux-x11) app
 
 ## Desktop Usage (Full Version Only)
 
@@ -94,7 +94,8 @@ This project uses the following components:
 - **[JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)** - Nerd Font patched version
 - **[Tokyo Night](https://github.com/tokyo-night/tokyo-night-vscode-theme)** - Color scheme
 - **[Fastfetch](https://github.com/fastfetch-cli/fastfetch)** - System information tool
-- **[XFCE](https://www.xfce.org/)** - Desktop environment
+- **[XFCE](https://www.xfce.org/)** - a lightweight desktop environment
+- **[i3](https://i3wm.org/)** - tiling window manager
 - **[PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)** - Sound server
 
 ## Contributing
