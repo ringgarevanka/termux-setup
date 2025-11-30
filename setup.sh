@@ -242,72 +242,7 @@ env DISPLAY=:0 dbus-launch --exit-with-session i3 &
 EOF
                 chmod +x "$HOME/.termux/.starti3"
 
-                # i3 config
-                mkdir -p "$HOME/.config/i3"
-                cat > "$HOME/.config/i3/config" << 'EOF'
-# i3 CONFIG
-
-font pango:JetBrainsMono Nerd Font 12
-
-set $mod Mod4
-
-bindsym $mod+Return exec xterm
-bindsym $mod+Shift+q kill
-bindsym $mod+d exec rofi -show drun
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
-
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-
-bindsym $mod+h split h
-bindsym $mod+v split v
-bindsym $mod+f fullscreen toggle
-
-bindsym $mod+Shift+space floating toggle
-
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-mode "resize" {
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
-
-bar {
-    status_command i3status
-}
-
-exec --no-startup-id rofi -daemon
-exec --no-startup-id feh
-EOF
+                # i3 config is comingsoon
             fi
 
             # OPTION 0 — NO DESKTOP
